@@ -4,12 +4,14 @@ libiconv_url = https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.17.tar.gz
 
 busted_version = 2.1.1
 luacheck_version = 1.1.0
+luacov_version = 0.15.0
 
 all: lua-dev lpeg gettext libiconv
 
 lua-dev:
 	luarocks install --tree lua_modules busted $(busted_version)
 	luarocks install --tree lua_modules luacheck $(luacheck_version)
+	luarocks install --tree lua_modules luacov $(luacov_version)
 	mv lua_modules/share/lua/* ./lua-dev-deps
 
 	# Mac tar converts extended attributes (such as `com.apple.quarantine`
